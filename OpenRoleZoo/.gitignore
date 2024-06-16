@@ -1,0 +1,12 @@
+# general ignore files
+*.exe
+*.out
+*.dll
+*.a
+*.o
+*.obj
+/build
+/cmake-*
+/.idea
+/.vs
+

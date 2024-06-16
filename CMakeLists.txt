@@ -30,7 +30,6 @@ add_subdirectory(OpenRoleZoo)
 
 add_subdirectory(SeetaAuthorize)
 add_subdirectory(TenniS)
-
 add_subdirectory(FaceAntiSpoofingX6)
 add_subdirectory(FaceRecognizer6)
 add_subdirectory(Landmarker)
@@ -44,3 +43,4 @@ add_subdirectory(QualityAssessor3)
 add_subdirectory(FaceTracker6)
 
 add_subdirectory(example/qt/seetaface_demo)
+add_subdirectory(example/qt/my)

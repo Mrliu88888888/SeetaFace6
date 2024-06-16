@@ -817,7 +817,7 @@ void VideoCaptureThread::run()
 	else if (m_type.type == 1)
 	{
 		m_capture = new cv::VideoCapture;
-		m_capture->open(m_type.filename.toStdString().c_str());
+		m_capture->open(m_type.filename.toStdString());
 		m_capture->set(cv::CAP_PROP_FRAME_WIDTH, gparamters.VideoWidth);
 		m_capture->set(cv::CAP_PROP_FRAME_HEIGHT, gparamters.VideoHeight);
 	}

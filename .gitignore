@@ -1,4 +1,5 @@
 ﻿.vs/
 out/
+build/
 
 CMakePresets.json

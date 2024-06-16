@@ -8,24 +8,23 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/bin)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/lib)
 set(ARCHIVE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/lib)
 
+set(SeetaFaceDir ${CMAKE_CURRENT_SOURCE_DIR})
 set(CONFIGURATION ${CMAKE_BUILD_TYPE})
+if ("${CONFIGURATION}" STREQUAL "Debug")
+	set(LIB_SUFFIX "d")
+endif ()
 
 set(ORZ_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/OpenRoleZoo/include")
 set(SeetaAuthorize_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/SeetaAuthorize/include")
 set(TenniS_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/TenniS/include")
 set(SeetaPoseEstimation_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/PoseEstimator6/PoseEstimation/include")
 set(SeetaFaceDetector_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/FaceBoxes/FaceDetector/include")
-if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-	set(SeetaAuthorize_LIBRARIES ${LIBRARY_OUTPUT_PATH}/SeetaAuthorized.lib)
-	set(TenniS_LIBRARIES ${LIBRARY_OUTPUT_PATH}/tennisd.lib)
-	set(SeetaPoseEstimation_LIBRARIES ${LIBRARY_OUTPUT_PATH}/SeetaPoseEstimation600d.lib)
-	set(SeetaFaceDetector_LIBRARIES ${LIBRARY_OUTPUT_PATH}/SeetaFaceDetector600d.lib)
-else ()
-	set(SeetaAuthorize_LIBRARIES ${LIBRARY_OUTPUT_PATH}/SeetaAuthorize.lib)
-	set(TenniS_LIBRARIES ${LIBRARY_OUTPUT_PATH}/tennis.lib)
-	set(SeetaPoseEstimation_LIBRARIES ${LIBRARY_OUTPUT_PATH}/SeetaPoseEstimation600.lib)
-	set(SeetaFaceDetector_LIBRARIES ${LIBRARY_OUTPUT_PATH}/SeetaFaceDetector600.lib)
-endif ()
+set(SeetaAuthorize_LIBRARIES ${LIBRARY_OUTPUT_PATH}/SeetaAuthorize${LIB_SUFFIX}.lib)
+set(TenniS_LIBRARIES ${LIBRARY_OUTPUT_PATH}/tennis${LIB_SUFFIX}.lib)
+set(SeetaPoseEstimation_LIBRARIES ${LIBRARY_OUTPUT_PATH}/SeetaPoseEstimation600${LIB_SUFFIX}.lib)
+set(SeetaFaceDetector_LIBRARIES ${LIBRARY_OUTPUT_PATH}/SeetaFaceDetector600${LIB_SUFFIX}.lib)
+
+
 
 add_subdirectory(OpenRoleZoo)
 
@@ -41,6 +40,7 @@ add_subdirectory(SeetaEyeStateDetector)
 add_subdirectory(SeetaGenderPredictor)
 add_subdirectory(SeetaMaskDetector)
 add_subdirectory(FaceBoxes)
-
 add_subdirectory(QualityAssessor3)
 add_subdirectory(FaceTracker6)
+
+add_subdirectory(example/qt/seetaface_demo)

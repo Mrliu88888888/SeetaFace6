@@ -1,5 +1,7 @@
 ﻿.vs/
 out/
 build/
+*/bin/
+*/lib/
 
 CMakePresets.json
